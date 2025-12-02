@@ -34,10 +34,3 @@ resource "azurerm_storage_account" "main" {
     Owner       = "Tove Jonassen"
   }
 }
-
-# Storage Container
-resource "azurerm_storage_container" "demo" {
-  name                  = local.container_name
-  storage_account_id    = azurerm_storage_account.main.id
-  container_access_type = "private"
-}

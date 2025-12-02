@@ -24,6 +24,8 @@ jobs:
       ENVIRONMENT: "dev"
       LOCATION: "norwayeast"
       PROJECT_NAME: "tj4202" # kommentar for push
+      ACCOUNT_TIER: "Standard"
+      ACCOUNT_REPLICATION_TYPE: "LRS"
     
     steps:
       - name: Checkout code
@@ -56,7 +58,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=projects/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
+            -backend-config="key=modul8/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
             -input=false \
             -no-color
       
@@ -67,6 +69,8 @@ jobs:
             -var="environment=${{ env.ENVIRONMENT }}" \
             -var="location=${{ env.LOCATION }}" \
             -var="project_name=${{ env.PROJECT_NAME }}" \
+            -var="account_tier=${{ env.ACCOUNT_TIER }}" \
+            -var="account_replication_type=${{ env.ACCOUNT_REPLICATION_TYPE }}" \
             -no-color
       
       - name: Terraform Output
@@ -89,6 +93,8 @@ jobs:
       ENVIRONMENT: "test"
       LOCATION: "norwayeast"
       PROJECT_NAME: "tj4202"
+      ACCOUNT_TIER: "Standard"
+      ACCOUNT_REPLICATION_TYPE: "GRS"
     
     steps:
       - name: Checkout code
@@ -121,7 +127,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=projects/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
+            -backend-config="key=tj4202/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
             -input=false \
             -no-color
       

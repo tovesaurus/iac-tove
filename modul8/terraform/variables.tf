@@ -20,12 +20,6 @@ variable "project_name" {
   default     = "tj42"
 }
 
-variable "container_name" {
-  description = "Name of the storage container for Terraform state"
-  type        = string
-  default     = "demo"
-}
-
 variable "resource_group_name" {
   description = "Name of the resource group"
   type        = string

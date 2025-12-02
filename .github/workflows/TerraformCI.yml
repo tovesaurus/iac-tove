@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "modul8/**"
+    workflow_dispatch:
 
 permissions:
   id-token: write
@@ -126,16 +127,22 @@ jobs:
               echo "ENVIRONMENT=dev" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
               echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
+              echo "ACCOUNT_TIER=Standard" >> $GITHUB_ENV
+              echo "ACCOUNT_REPLICATION_TYPE=LRS" >> $GITHUB_ENV
               ;;
             test)
               echo "ENVIRONMENT=test" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
               echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
+              echo "ACCOUNT_TIER=Standard" >> $GITHUB_ENV
+              echo "ACCOUNT_REPLICATION_TYPE=GRS" >> $GITHUB_ENV
               ;;
             prod)
               echo "ENVIRONMENT=prod" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
               echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
+              echo "ACCOUNT_TIER=Premium" >> $GITHUB_ENV
+              echo "ACCOUNT_REPLICATION_TYPE=GRS" >> $GITHUB_ENV
               ;;
           esac
       
@@ -149,6 +156,9 @@ jobs:
             -var="environment=${{ env.ENVIRONMENT }}" \
             -var="location=${{ env.LOCATION }}" \
             -var="project_name=${{ env.PROJECT_NAME }}" \
+            -var="account_tier=${{ env.ACCOUNT_TIER }}" \
+            -var="account_replication_type=${{ env.ACCOUNT_REPLICATION_TYPE }}" \
+            
             -out=${{ matrix.environment }}.tfplan 2>&1 | tee plan-output.txt
           
           PLAN_EXIT_CODE=${PIPESTATUS[0]}
