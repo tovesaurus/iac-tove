@@ -32,5 +32,6 @@ resource "azurerm_storage_account" "main" {
     Environment = var.environment
     ManagedBy   = "Terraform"
     Owner       = "Tove Jonassen"
+    Dato        = "2025-12-02"
   }
 }
