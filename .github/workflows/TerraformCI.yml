@@ -158,7 +158,6 @@ jobs:
             -var="project_name=${{ env.PROJECT_NAME }}" \
             -var="account_tier=${{ env.ACCOUNT_TIER }}" \
             -var="account_replication_type=${{ env.ACCOUNT_REPLICATION_TYPE }}" \
-            
             -out=${{ matrix.environment }}.tfplan 2>&1 | tee plan-output.txt
           
           PLAN_EXIT_CODE=${PIPESTATUS[0]}
