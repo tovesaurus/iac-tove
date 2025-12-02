@@ -160,7 +160,7 @@ jobs:
       ENVIRONMENT: "prod"
       LOCATION: "norwayeast"
       PROJECT_NAME: "tj4202"
-      ACCOUNT_TIER: "Premium"
+      ACCOUNT_TIER: "Standard"
       ACCOUNT_REPLICATION_TYPE: "GRS"
     
     steps:
