@@ -141,7 +141,7 @@ jobs:
               echo "ENVIRONMENT=prod" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
               echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
-              echo "ACCOUNT_TIER=Premium" >> $GITHUB_ENV
+              echo "ACCOUNT_TIER=Standard" >> $GITHUB_ENV
               echo "ACCOUNT_REPLICATION_TYPE=GRS" >> $GITHUB_ENV
               ;;
           esac
