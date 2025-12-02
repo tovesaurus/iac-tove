@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "bodm/simple-terraform/**"
+      - "modul8/**"
 
 permissions:
   id-token: write
@@ -17,13 +17,13 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      WORKDIR: "bodm/simple-terraform"
-      BACKEND_HCL: "bodm/simple-terraform/shared/backend.hcl"
+      WORKDIR: "modul8"
+      BACKEND_HCL: "modul8/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "dev"
       LOCATION: "norwayeast"
-      PROJECT_NAME: "tj42bodm"
+      PROJECT_NAME: "tj4202"
     
     steps:
       - name: Checkout code
@@ -82,13 +82,13 @@ jobs:
     needs: deploy-dev
     environment: test
     env:
-      WORKDIR: "bodm/simple-terraform"
-      BACKEND_HCL: "bodm/simple-terraform/shared/backend.hcl"
+      WORKDIR: "modul8"
+      BACKEND_HCL: "modul8/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "test"
       LOCATION: "norwayeast"
-      PROJECT_NAME: "tj42bodm"
+      PROJECT_NAME: "tj4202"
     
     steps:
       - name: Checkout code
@@ -147,13 +147,13 @@ jobs:
     needs: deploy-test
     environment: prod
     env:
-      WORKDIR: "bodm/simple-terraform"
-      BACKEND_HCL: "bodm/simple-terraform/shared/backend.hcl"
+      WORKDIR: "modul8"
+      BACKEND_HCL: "modul8/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "prod"
       LOCATION: "norwayeast"
-      PROJECT_NAME: "tj42bodm"
+      PROJECT_NAME: "tj4202"
     
     steps:
       - name: Checkout code

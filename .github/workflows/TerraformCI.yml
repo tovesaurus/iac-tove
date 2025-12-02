@@ -5,7 +5,7 @@ on:
     branches: 
       - main
     paths:
-      - "bodm/simple-terraform/**"
+      - "modul8/**"
 
 permissions:
   id-token: write
@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      WORKDIR: "bodm/simple-terraform"
-      BACKEND_HCL: "bodm/simple-terraform/shared/backend.hcl"
+      WORKDIR: "modul8"
+      BACKEND_HCL: "modul8/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       
@@ -60,7 +60,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=projects/storageaccount/dev/dev.tfstate" \
+            -backend-config="key=modul8/storageaccount/dev/dev.tfstate" \
             -input=false \
             -no-color
       
@@ -75,8 +75,8 @@ jobs:
     needs: validate
     environment: ${{ matrix.environment }}
     env:
-      WORKDIR: "bodm/simple-terraform"
-      BACKEND_HCL: "bodm/simple-terraform/shared/backend.hcl"
+      WORKDIR: "modul8"
+      BACKEND_HCL: "modul8/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
     
@@ -115,7 +115,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=projects/storageaccount/${{ matrix.environment }}/${{ matrix.environment }}.tfstate" \
+            -backend-config="key=modul8/storageaccount/${{ matrix.environment }}/${{ matrix.environment }}.tfstate" \
             -input=false \
             -no-color
       
@@ -125,17 +125,17 @@ jobs:
             dev)
               echo "ENVIRONMENT=dev" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
-              echo "PROJECT_NAME=tj42" >> $GITHUB_ENV
+              echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
               ;;
             test)
               echo "ENVIRONMENT=test" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
-              echo "PROJECT_NAME=tj42" >> $GITHUB_ENV
+              echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
               ;;
             prod)
               echo "ENVIRONMENT=prod" >> $GITHUB_ENV
               echo "LOCATION=norwayeast" >> $GITHUB_ENV
-              echo "PROJECT_NAME=tj42" >> $GITHUB_ENV
+              echo "PROJECT_NAME=tj4202" >> $GITHUB_ENV
               ;;
           esac
       
