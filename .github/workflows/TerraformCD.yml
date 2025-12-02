@@ -18,7 +18,7 @@ jobs:
     environment: dev
     env:
       WORKDIR: "modul8"
-      BACKEND_HCL: "../shared/backend.hcl"
+      BACKEND_HCL: "modul8/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "dev"
