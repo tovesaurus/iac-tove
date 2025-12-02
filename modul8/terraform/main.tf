@@ -33,6 +33,5 @@ resource "azurerm_storage_account" "main" {
     ManagedBy   = "Terraform"
     Owner       = "Tove Jonassen"
     CostCenter  = "IT"
-    Dato        = "2025-02-12"
   }
 }
