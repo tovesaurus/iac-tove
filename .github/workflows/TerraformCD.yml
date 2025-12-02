@@ -23,7 +23,7 @@ jobs:
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "dev"
       LOCATION: "norwayeast"
-      PROJECT_NAME: "tj4202"
+      PROJECT_NAME: "tj4202" # kommentar for push
     
     steps:
       - name: Checkout code
