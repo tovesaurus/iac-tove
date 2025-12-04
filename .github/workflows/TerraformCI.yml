@@ -5,7 +5,7 @@ on:
     branches: 
       - main
     paths:
-      - "modul8/**"
+      - "modul9/**"
   workflow_dispatch:
 
 permissions:
@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      WORKDIR: "modul8"
-      BACKEND_HCL: "modul8/shared/backend.hcl"
+      WORKDIR: "modul9"
+      BACKEND_HCL: "modul9/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       
@@ -61,7 +61,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=modul8/storageaccount/dev/dev.tfstate" \
+            -backend-config="key=modul9/dev/dev.tfstate" \
             -input=false \
             -no-color
       
@@ -76,8 +76,8 @@ jobs:
     needs: validate
     environment: ${{ matrix.environment }}
     env:
-      WORKDIR: "modul8"
-      BACKEND_HCL: "modul8/shared/backend.hcl"
+      WORKDIR: "modul9"
+      BACKEND_HCL: "modul9/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
     
@@ -116,7 +116,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=modul8/storageaccount/${{ matrix.environment }}/${{ matrix.environment }}.tfstate" \
+            -backend-config="key=modul9/${{ matrix.environment }}/${{ matrix.environment }}.tfstate" \
             -input=false \
             -no-color
       

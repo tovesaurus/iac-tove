@@ -1,0 +1,20 @@
+# .checkov.yaml - Minimal konfigurasjon for å komme i gang
+
+framework:
+  - terraform # Scanner terraform-filer
+
+output: cli # viser resultat i terminal
+
+compact: true # kompakt visning
+
+quiet: false # vis all info, ikke bare feil
+
+skip-check:
+- CKV2_AZURE_38
+- CKV_AZURE_33 
+- CKV_AZURE_206
+- CKV2_AZURE_40
+- CKV2_AZURE_41
+- CKV2_AZURE_1
+- CKV2_AZURE_21
+- CKV2_AZURE_33

@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "modul8/**"
+      - "modul9/**"
 
 permissions:
   id-token: write
@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     env:
-      WORKDIR: "modul8"
-      BACKEND_HCL: "modul8/shared/backend.hcl"
+      WORKDIR: "modul9"
+      BACKEND_HCL: "modul9/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "dev"
@@ -58,7 +58,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=modul8/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
+            -backend-config="key=modul9/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
             -input=false \
             -no-color
       
@@ -86,8 +86,8 @@ jobs:
     needs: deploy-dev
     environment: test
     env:
-      WORKDIR: "modul8"
-      BACKEND_HCL: "modul8/shared/backend.hcl"
+      WORKDIR: "modul9"
+      BACKEND_HCL: "modul9/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "test"
@@ -127,7 +127,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=tj4202/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
+            -backend-config="key=tj4202/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
             -input=false \
             -no-color
       
@@ -153,8 +153,8 @@ jobs:
     needs: deploy-test
     environment: prod
     env:
-      WORKDIR: "modul8"
-      BACKEND_HCL: "modul8/shared/backend.hcl"
+      WORKDIR: "modul9"
+      BACKEND_HCL: "modul9/shared/backend.hcl"
       TF_INPUT: "false"
       TF_IN_AUTOMATION: "true"
       ENVIRONMENT: "prod"
@@ -194,7 +194,7 @@ jobs:
         run: |
           terraform init \
             -backend-config="${{ github.workspace }}/${{ env.BACKEND_HCL }}" \
-            -backend-config="key=projects/storageaccount/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
+            -backend-config="key=projects/${{ env.ENVIRONMENT }}/${{ env.ENVIRONMENT }}.tfstate" \
             -input=false \
             -no-color
       
