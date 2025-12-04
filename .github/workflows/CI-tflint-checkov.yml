@@ -25,16 +25,16 @@ jobs:
 
     steps:
     - name: Checkout
-    - uses: actions/checkout@v6.0.1
+      uses: actions/checkout@v6.0.1
 
     - name: Setup Terraform
-    - uses: hashicorp/setup-terraform@v2.0.3
+      uses: hashicorp/setup-terraform@v2.0.3
       with:
         terraform_version: 1.13.4
         terraform_wrapper: false
 
     - name: Azure Login
-    - uses: Azure/login@v2.3.0
+      uses: Azure/login@v2.3.0
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -50,13 +50,13 @@ jobs:
         } >> "$GITHUB_ENV"
 
     - name: Terraform Format Check
-      working-directory: ${{ env.WORKDIR }}/terraform
+      working-directory: ${{ env.WORKDIR }}
       id: fmt
       run: terraform fmt -check -recursive
       continue-on-error: true
 
     - name: Terraform Init
-      working-directory: ${{ env.WORKDIR }}/terraform
+      working-directory: ${{ env.WORKDIR }}
       id: init
       run: |
         terraform init \
@@ -66,7 +66,7 @@ jobs:
           -no-color
       
     - name: Terraform Validate
-      working-directory: ${{ env.WORKDIR }}/terraform
+      working-directory: ${{ env.WORKDIR }}
       id: validate
       run: terraform validate -no-color
 
@@ -102,14 +102,3 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: ${{ env.WORKDIR }}/results.sarif
-    
-        
-
-        
-    
-      
-        
-      
-      
-    
-        
