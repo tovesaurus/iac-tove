@@ -1,0 +1,32 @@
+[
+  {
+    "changedTime": "2025-12-10T11:01:49.478641+00:00",
+    "createdTime": "2025-12-10T10:51:27.484428+00:00",
+    "extendedLocation": null,
+    "id": "/subscriptions/7a3c6854-0fe1-42eb-b5b9-800af1e53d70/resourceGroups/rg-demo-a-tj42/providers/Microsoft.Storage/storageAccounts/sademoatj42",
+    "identity": {
+      "principalId": null,
+      "tenantId": null,
+      "type": "None",
+      "userAssignedIdentities": null
+    },
+    "kind": "StorageV2",
+    "location": "westeurope",
+    "managedBy": null,
+    "name": "sademoatj42",
+    "plan": null,
+    "properties": null,
+    "provisioningState": "Succeeded",
+    "resourceGroup": "rg-demo-a-tj42",
+    "sku": {
+      "capacity": null,
+      "family": null,
+      "model": null,
+      "name": "Standard_LRS",
+      "size": null,
+      "tier": "Standard"
+    },
+    "tags": {},
+    "type": "Microsoft.Storage/storageAccounts"
+  }
+]
