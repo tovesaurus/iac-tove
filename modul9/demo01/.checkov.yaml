@@ -1,4 +1,4 @@
-# .checkov.yaml - Minimal konfigurasjon for å komme i gang
+# .checkov.yaml
 
 framework:
   - terraform # Scanner terraform-filer
