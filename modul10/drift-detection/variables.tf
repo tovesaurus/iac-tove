@@ -1,7 +1,7 @@
 variable "student_name" {
   description = "Student's name or identifier (will be used in resource naming)"
   type        = string
-  default     = "tj4210"
+  default     = "tj42"
 
   validation {
     condition     = can(regex("^[a-z0-9]+$", var.student_name))
@@ -24,7 +24,7 @@ variable "environment" {
 variable "cost_center" {
   description = "Cost center for billing"
   type        = string
-  default     = "student-lab"
+  default     = "tj42-lab-001"
 }
 variable "rg_name" {
   type        = string
